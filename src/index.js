@@ -22,16 +22,6 @@ class Display extends Component {
     }
 }
 
-class Button extends Component {
-    render() {
-        return (
-            <div className={`button ${this.props.className}`}>
-                {this.props.value}
-            </div>
-        )
-    }
-}
-
 class Buttons extends Component {
     render() {
         return (
@@ -53,6 +43,16 @@ class Buttons extends Component {
                 <Button value="C" />
                 <Button value="/" />
                 <Button value="=" className="equals" /> 
+            </div>
+        )
+    }
+}
+
+class Button extends Component {
+    render() {
+        return (
+            <div className={`button ${this.props.className}`}>
+                {this.props.value}
             </div>
         )
     }
