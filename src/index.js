@@ -8,7 +8,7 @@ class Calculator extends React.Component {
     return (
       <div className="calculator">
         <Display />
-        <Buttons />
+        <Buttons onClick={() => console.log("top level click")} />
       </div>
     );
   }
@@ -23,10 +23,13 @@ class Display extends Component {
 }
 
 class Buttons extends Component {
+
     render() {
         return (
             <div className="buttons">
-                <Button value="7" />
+                <Button 
+                    value="7"
+                    onClick={this.props.onClick} />
                 <Button value="8" />
                 <Button value="9" />
                 <Button value="+" />
@@ -51,7 +54,9 @@ class Buttons extends Component {
 class Button extends Component {
     render() {
         return (
-            <div className={`button ${this.props.className}`}>
+            <div 
+                className={`button ${this.props.className}`}
+                onClick={this.props.onClick}>
                 {this.props.value}
             </div>
         )
