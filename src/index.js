@@ -22,42 +22,46 @@ class Display extends Component {
     }
 }
 
+function Button(props) {
+    return (
+        <div 
+            className={`button ${props.className}`}
+            onClick={props.onClick}>
+            {props.value}
+        </div>
+    )
+}
 class Buttons extends Component {
+    renderButton(i, className) {
+        return (
+            <Button 
+                value={i}
+                className={`button ${className}`}
+                onClick={this.props.onClick} 
+            />
+        )
+    }
 
     render() {
         return (
             <div className="buttons">
-                <Button 
-                    value="7"
-                    onClick={this.props.onClick} />
-                <Button value="8" />
-                <Button value="9" />
-                <Button value="+" />
-                <Button value="4" />
-                <Button value="5" />
-                <Button value="6" />
-                <Button value="-" />
-                <Button value="1" />
-                <Button value="2" />
-                <Button value="3" />
-                <Button value="x" />
-                <Button value="0" />
-                <Button value="." />
-                <Button value="C" />
-                <Button value="/" />
-                <Button value="=" className="equals" /> 
-            </div>
-        )
-    }
-}
-
-class Button extends Component {
-    render() {
-        return (
-            <div 
-                className={`button ${this.props.className}`}
-                onClick={this.props.onClick}>
-                {this.props.value}
+                {this.renderButton(7)}
+                {this.renderButton(8)}
+                {this.renderButton(9)}
+                {this.renderButton('+')}
+                {this.renderButton(4)}
+                {this.renderButton(5)}
+                {this.renderButton(6)}
+                {this.renderButton('-')}
+                {this.renderButton(1)}
+                {this.renderButton(2)}
+                {this.renderButton(3)}
+                {this.renderButton('x')}
+                {this.renderButton(0)}
+                {this.renderButton('.')}
+                {this.renderButton('C')}
+                {this.renderButton('/')}
+                {this.renderButton('=', 'equals')}
             </div>
         )
     }
