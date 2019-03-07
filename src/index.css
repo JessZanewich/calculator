@@ -1,0 +1,37 @@
+.calculator {
+    width: 400px;
+    height: 500px;
+    border: 5px solid black;
+    padding: 3%;
+    margin: 0px auto;
+    box-sizing: border-box;
+}
+
+.display {
+    height: 22%;
+    /* padding: 5%; */
+    border: 3px solid black;
+    box-sizing: border-box;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 78%;
+    margin: 5% 0 8% auto;
+    box-sizing: border-box;
+}
+
+.button {
+    width: 23%;
+    height: 14%;
+    background-color: 'lightblue';
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid green;
+}
+
+.equals {
+    flex-grow: 2;
+}
