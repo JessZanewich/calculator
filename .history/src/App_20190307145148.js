@@ -11,17 +11,17 @@ class Calculator extends React.Component {
   }
 }
 
-// class Display extends Component {
+class Display extends Component {
 
-// }
+}
 
-// class Buttons extends Component {
+class Buttons extends Component {
 
-// }
+}
 
-// class Button extends Component {
+class Button extends Component {
   
-// }
+}
 
 ReactDOM.render(
   <Calculator />, 
