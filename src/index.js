@@ -22,6 +22,13 @@ class Calculator extends Component {
             } else {
                 this.setState({secondNum: this.state.secondNum + buttonVal});
             }
+        } else if (buttonVal === 'CLR') {
+            this.setState({
+                firstNum: '',
+                secondNum: '',
+                operator: '',
+                result: ''
+            });
         } else if (buttonVal === '=') {
             // calculate result
             let calculatedResult = Math.floor(this.calculateResult() * 100) / 100;
@@ -30,9 +37,10 @@ class Calculator extends Component {
                 firstNum: '',
                 secondNum: '',
                 operator: '',
-                result: calculatedResult});
+                result: calculatedResult
+            });
         } else {
-            // is operator
+            // operator
            this.setState({operator: buttonVal});
         }
     }
