@@ -1,17 +1,31 @@
+@import "https://fonts.googleapis.com/css?family=Roboto+Slab|ZCOOL+QingKe+HuangYou";
+
 .calculator {
     width: 400px;
     height: 500px;
-    border: 5px solid black;
+    border: 7px solid black;
     padding: 3%;
     margin: 0px auto;
     box-sizing: border-box;
+    background-color: #7EB2DD;
+    border-radius: 15px;
+    box-shadow: 5px 5px black;
 }
 
 .display {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5%;
+    align-items: center;
     height: 22%;
-    /* padding: 5%; */
     border: 3px solid black;
     box-sizing: border-box;
+    letter-spacing: 2px;
+    font-size: 46px;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+
+    background-color: #596475;
+    color: #D1CFE2;
 }
 
 .buttons {
@@ -24,14 +38,22 @@
 }
 
 .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 23%;
     height: 14%;
     background-color: 'lightblue';
-    text-align: center;
-    border-radius: 3px;
-    border: 1px solid green;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Roboto Slab', serif;
+    border-radius: 6px;
+    background-color: #445E93;
+    color: #D1CFE2;
+    box-shadow: 2px 2px 2px black;
 }
 
 .equals {
     flex-grow: 2;
+    background-color: #F93943;
 }
