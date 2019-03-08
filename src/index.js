@@ -103,7 +103,7 @@ class Buttons extends Component {
                 <Button clickSend={this.handleClick} value='x' />
                 <Button clickSend={this.handleClick} value='0' />
                 <Button clickSend={this.handleClick} value='.' />
-                <Button clickSend={this.handleClick} value='C' />
+                <Button clickSend={this.handleClick} value='CLR' />
                 <Button clickSend={this.handleClick} value='/' />
                 <Button clickSend={this.handleClick} value='=' className='equals' />
             </div>
