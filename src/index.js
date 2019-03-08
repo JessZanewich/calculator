@@ -7,15 +7,29 @@ class Calculator extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstNum: null,
-            secondNum: null,
+            firstNum: '',
+            secondNum: '',
             operator: null,
             result: null
         }
     }
-    registerValue(value) {
+    registerValue(buttonVal) {
         const numbers = new RegExp('^[0-9]');
-        console.log(value);
+
+        if(numbers.test(buttonVal) || buttonVal === '.') {
+            // is number or decimal
+            if(!this.state.operator) {
+                this.setState({firstNum: this.state.firstNum + buttonVal});
+            } else {
+                this.setState({secondNum: this.state.secondNum + buttonVal});
+            }
+        } else if (buttonVal === '=') {
+            // calculate result
+            console.log(buttonVal);
+        } else {
+            // is operator
+           this.setState({operator: buttonVal});
+        }
     }
 
     render() {
