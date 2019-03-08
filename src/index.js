@@ -4,14 +4,20 @@ import './index.css';
 
 
 class Calculator extends React.Component {
-  render() {
-    return (
-      <div className="calculator">
-        <Display />
-        <Buttons onClick={() => console.log("top level click")} />
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            
+        }
+    }
+    render() {
+        return (
+        <div className="calculator">
+            <Display />
+            <Buttons onClick={(i) => console.log(i)} />
+        </div>
+        );
+    }
 }
 
 class Display extends Component {
@@ -22,46 +28,39 @@ class Display extends Component {
     }
 }
 
-function Button(props) {
-    return (
-        <div 
-            className={`button ${props.className}`}
-            onClick={props.onClick}>
-            {props.value}
-        </div>
-    )
-}
-class Buttons extends Component {
-    renderButton(i, className) {
+class Button extends Component {
+    render() {
         return (
-            <Button 
-                value={i}
-                className={`button ${className}`}
-                onClick={this.props.onClick} 
-            />
+            <div 
+                className={`button ${this.props.className}`}
+                onClick={this.props.onClick}>
+                {this.props.value}
+            </div>
         )
     }
+}
 
+class Buttons extends Component {
     render() {
         return (
             <div className="buttons">
-                {this.renderButton(7)}
-                {this.renderButton(8)}
-                {this.renderButton(9)}
-                {this.renderButton('+')}
-                {this.renderButton(4)}
-                {this.renderButton(5)}
-                {this.renderButton(6)}
-                {this.renderButton('-')}
-                {this.renderButton(1)}
-                {this.renderButton(2)}
-                {this.renderButton(3)}
-                {this.renderButton('x')}
-                {this.renderButton(0)}
-                {this.renderButton('.')}
-                {this.renderButton('C')}
-                {this.renderButton('/')}
-                {this.renderButton('=', 'equals')}
+                <Button onClick={this.props.onClick} value='7' />
+                <Button onClick={this.props.onClick} value='8' />
+                <Button onClick={this.props.onClick} value='9' />
+                <Button onClick={this.props.onClick} value='+' />
+                <Button onClick={this.props.onClick} value='4' />
+                <Button onClick={this.props.onClick} value='5' />
+                <Button onClick={this.props.onClick} value='6' />
+                <Button onClick={this.props.onClick} value='-' />
+                <Button onClick={this.props.onClick} value='1' />
+                <Button onClick={this.props.onClick} value='2' />
+                <Button onClick={this.props.onClick} value='3' />
+                <Button onClick={this.props.onClick} value='X' />
+                <Button onClick={this.props.onClick} value='0' />
+                <Button onClick={this.props.onClick} value='.' />
+                <Button onClick={this.props.onClick} value='C' />
+                <Button onClick={this.props.onClick} value='/' />
+                <Button onClick={this.props.onClick} value='=' className='equals' />
             </div>
         )
     }
