@@ -2,28 +2,62 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-
 class Calculator extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstNum: null,
-            secondNum: null,
-            operator: null,
-            result: null
+            firstNum: '',
+            secondNum: '',
+            operator: '',
+            result: ''
         }
     }
-    registerValue(value) {
+    registerValue(buttonVal) {
         const numbers = new RegExp('^[0-9]');
-        console.log(value);
+
+        if(numbers.test(buttonVal) || buttonVal === '.') {
+            // is number or decimal
+            if(!this.state.operator) {
+                this.setState({firstNum: this.state.firstNum + buttonVal});
+            } else {
+                this.setState({secondNum: this.state.secondNum + buttonVal});
+            }
+        } else if (buttonVal === '=') {
+            // calculate result
+            let calculatedResult = Math.floor(this.calculateResult() * 100) / 100;
+
+            this.setState({
+                firstNum: '',
+                secondNum: '',
+                operator: '',
+                result: calculatedResult});
+        } else {
+            // is operator
+           this.setState({operator: buttonVal});
+        }
+    }
+
+    calculateResult() {
+        switch(this.state.operator) {
+            case '+':
+                return parseFloat(this.state.firstNum) + parseFloat(this.state.secondNum);
+            case '-':
+                return parseFloat(this.state.firstNum) - parseFloat(this.state.secondNum);
+            case 'x':
+                return parseFloat(this.state.firstNum) * parseFloat(this.state.secondNum);
+            case '/':
+                return parseFloat(this.state.firstNum) / parseFloat(this.state.secondNum);
+            default:
+                return '0';
+        }
     }
 
     render() {
         return (
-        <div className="calculator">
-            <Display />
-            <Buttons handleClick={(value) => this.registerValue(value)} />
-        </div>
+            <div className="calculator">
+                <Display value={(this.state.firstNum + this.state.operator + this.state.secondNum) || this.state.result || '0'} />
+                <Buttons handleClick={(value) => this.registerValue(value)} />
+            </div>
         );
     }
 }
@@ -31,7 +65,7 @@ class Calculator extends Component {
 class Display extends Component {
     render() {
         return (
-            <div className="display"></div>
+            <div className="display">{this.props.value}</div>
         )
     }
 }
@@ -66,7 +100,7 @@ class Buttons extends Component {
                 <Button clickSend={this.handleClick} value='1' />
                 <Button clickSend={this.handleClick} value='2' />
                 <Button clickSend={this.handleClick} value='3' />
-                <Button clickSend={this.handleClick} value='X' />
+                <Button clickSend={this.handleClick} value='x' />
                 <Button clickSend={this.handleClick} value='0' />
                 <Button clickSend={this.handleClick} value='.' />
                 <Button clickSend={this.handleClick} value='C' />
